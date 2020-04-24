@@ -5,8 +5,7 @@ const util = require("util");
 const writeFileAsync = util.promisify(fs.writeFile);
 
 
-async function userReadMeInfomation() {
-  try {
+ function userReadMeInfomation() {
     const variables = await inquirer.prompt([
     {
         message: "Enter Project Title",
@@ -72,17 +71,24 @@ async function userReadMeInfomation() {
             return "You Must Enter Your GitHub Username";
         }
     return true;
-} 
-    }
+        }    
+            }   
+    
 ]);
+}
 
+async function makeReadme () {
+console.log("Making ReadMe...")
+
+try {
+const data = userReadMeInfomation ();
 await writeFileAsync('README.md');
-
 console.log("Successfuly created ReadMe File");
 
 } catch (err) {
     console.log(err);
-}
-};
+    }
+        };
+    
 
-userReadMeInfomation ();
+makeReadme ();
