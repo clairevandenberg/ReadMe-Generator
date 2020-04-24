@@ -6,7 +6,7 @@ const writeFileAsync = util.promisify(fs.writeFile);
 
 
  function userReadMeInfomation() {
-    const variables = await inquirer.prompt([
+  return inquirer.prompt([
     {
         message: "Enter Project Title",
         type: "input",
@@ -42,9 +42,9 @@ const writeFileAsync = util.promisify(fs.writeFile);
         type: "list",
         name: "License",
         choices: [
-            "Public Domain",
-            "Copyleft License",
-            "Permissive License",
+            "Apache License 2.0",
+            "GNU General Public License v3.0",
+            "MIT License",
         ]
     },
     {
@@ -72,6 +72,17 @@ const writeFileAsync = util.promisify(fs.writeFile);
         }
     return true;
         }    
+            }, 
+    {
+        message: "Enter User GitHub email",
+        type: "input",
+        name: "email",
+        validate: function(answer)
+        { if (answer == "") {
+            return "You Must Enter Your GitHub Email";
+        }
+    return true;
+         }    
             }   
     
 ]);
@@ -79,16 +90,24 @@ const writeFileAsync = util.promisify(fs.writeFile);
 
 async function makeReadme () {
 console.log("Making ReadMe...")
-
-try {
-const data = userReadMeInfomation ();
-await writeFileAsync('README.md');
+const result = await writeFileAsync('README.md');
 console.log("Successfuly created ReadMe File");
-
-} catch (err) {
-    console.log(err);
-    }
-        };
-    
+}
 
 makeReadme ();
+
+// async function makeReadme () {
+//     console.log("Making ReadMe...")
+    
+//     try {
+//     const data = userReadMeInfomation ();
+//     await writeFileAsync('README.md');
+//     console.log("Successfuly created ReadMe File");
+    
+//     } catch (err) {
+//         console.log(err);
+//         }
+//             };
+        
+    
+//     makeReadme ();
