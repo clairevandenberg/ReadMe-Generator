@@ -72,26 +72,17 @@ async function userReadMeInfomation() {
             return "You Must Enter Your GitHub Username";
         }
     return true;
-}
-    
+} 
     }
-])
+]);
 
-.then(function({ username }) {
-    const queryUrl = `https://api.github.com/users/${username}/repos?per_page=100`;
+await writeFileAsync('README.md');
 
-});
-
-await writeFileAsync ("README.md");
+console.log("Successfuly created ReadMe File");
 
 } catch (err) {
     console.log(err);
-  };
-  console.log(variables);
-
-
-console.log("README.MD FIlE CREATED");
-
+}
 };
 
 userReadMeInfomation ();
