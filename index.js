@@ -4,10 +4,8 @@ const util = require("util");
 
 const writeFileAsync = util.promisify(fs.writeFile);
 
-userReadMeInfomation();
-
 // user questions for readme 
- function userReadMeInfomation() {
+ async function userReadMeInfomation () {
   return inquirer.prompt([
     {
         message: "Enter Project Title",
@@ -91,13 +89,32 @@ userReadMeInfomation();
 }
 
 async function makeReadme () {
-    console.log("Making ReadMe...")
-    
-async function readmeUserData () { 
-    await userReadMeInfomation ();}
-    
-    const result = await writeFileAsync('README.md',
-    readmeUsertryData,
-    )
-    console.log("Successfuly created ReadMe File");
-    };
+console.log("Making ReadMe...")
+
+const readmeUserData = await userReadMeInfomation ();
+console.log(readmeUserData)
+
+const readmeUserString = `
+# ${readmeUserData.ProjectTitle}
+${readmeUserData.Description}
+${readmeUserData.Screenshot}
+${readmeUserData.Content}
+${readmeUserData.Installation}
+${readmeUserData.Usage}
+${readmeUserData.License}
+${readmeUserData.Contributing}
+${readmeUserData.Tests}
+${readmeUserData.Questions}
+${readmeUserData.username}
+${readmeUserData.email} `
+
+
+const result = await writeFileAsync('README.md',
+readmeUserString,
+)
+
+console.log("Successfuly created ReadMe File");
+};
+
+makeReadme ()
+
