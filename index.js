@@ -5,7 +5,6 @@ const util = require("util");
 const writeFileAsync = util.promisify(fs.writeFile);
 
 userReadMeInfomation();
-makeReadme ();
 
 // user questions for readme 
  function userReadMeInfomation() {
@@ -92,10 +91,13 @@ makeReadme ();
 }
 
 async function makeReadme () {
-console.log("Making ReadMe...")
-const readmeUserData = userReadMeInfomation;
-const result = await writeFileAsync('README.md',
-readmeUserData,
-)
-console.log("Successfuly created ReadMe File");
-};
+    console.log("Making ReadMe...")
+    
+async function readmeUserData () { 
+    await userReadMeInfomation ();}
+    
+    const result = await writeFileAsync('README.md',
+    readmeUsertryData,
+    )
+    console.log("Successfuly created ReadMe File");
+    };
