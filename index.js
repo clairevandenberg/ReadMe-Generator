@@ -106,8 +106,9 @@ ${readmeUserData.Contributing}
 ${readmeUserData.Tests}
 ${readmeUserData.Questions}
 ${readmeUserData.username}
-${readmeUserData.email} `
+${readmeUserData.email}`
 
+const FollowGitHub = `https://img.shields.io/github/followers/${username}}?label=Follow%20Me%20On%20GitHub&style=social`;
 
 const result = await writeFileAsync('README.md',
 readmeUserString,
