@@ -1,22 +1,21 @@
 
 # Readme Generator
+![Github Badge](https://img.shields.io/github/followers/clairevandeneberg}?label=Follow%20Me%20On%20GitHub&style=social)'
+
+## Description 
 When creating an open source project on GitHub, it is important to have a quality README with information about the app--what is the app for, how to use the app, how to install it, how to report issues, and how to make contributions so that other developers are more likely to use and contribute to the success of the project. A command-line application will allow for quick and easy generation of a project README to get started quickly. This will allow a project creator to spend more time working on finishing the project and less time creating a good README.
 
 ![Image description](screenshot.png)
 
-## Table of Contents
-* Usage 
-* License 
-* Author
+## Installation 
+GitHub
 
-## Installation
-Github
+## Usage 
+Runs through the terminal on node index.js
 
-## Usage
-node index.js ran through terminal
-
-## License
+## License 
 MIT License
 
-## Author
-@clairevandeneberg
+## Author 
+Clairevandeneberg
+Claire@email.com

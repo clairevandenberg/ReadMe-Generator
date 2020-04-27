@@ -65,7 +65,7 @@ const writeFileAsync = util.promisify(fs.writeFile);
     {
         message: "Enter User GitHub username",
         type: "input",
-        name: "username",
+        name: "Author",
         validate: function(answer)
         { if (answer == "") {
             return "You Must Enter Your GitHub Username";
@@ -94,21 +94,32 @@ console.log("Making ReadMe...")
 const readmeUserData = await userReadMeInfomation ();
 console.log(readmeUserData)
 
+const FollowGitHub = `https://img.shields.io/github/followers/${readmeUserData.Author}}?label=Follow%20Me%20On%20GitHub&style=social`;
+
+
 const readmeUserString = `
 # ${readmeUserData.ProjectTitle}
+![Github Badge](${FollowGitHub})'
+## Description 
 ${readmeUserData.Description}
-${readmeUserData.Screenshot}
+![Image description](${readmeUserData.Screenshot})
+## Content 
 ${readmeUserData.Content}
+## Installation 
 ${readmeUserData.Installation}
+## Usage 
 ${readmeUserData.Usage}
+## License 
 ${readmeUserData.License}
+## Contributing 
 ${readmeUserData.Contributing}
+## Tests 
 ${readmeUserData.Tests}
+## Questions 
 ${readmeUserData.Questions}
-${readmeUserData.username}
+## Author 
+${readmeUserData.Author}
 ${readmeUserData.email}`
-
-const FollowGitHub = `https://img.shields.io/github/followers/${username}}?label=Follow%20Me%20On%20GitHub&style=social`;
 
 const result = await writeFileAsync('README.md',
 readmeUserString,
