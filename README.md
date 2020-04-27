@@ -14,7 +14,9 @@ Github
 
 ## Usage
 node index.js ran through terminal
+
+## License
 MIT License
 
 ## Author
-clairevandeneberg
+@clairevandeneberg
